@@ -10,7 +10,8 @@ To make sure we never underpredict we additionally add an additional factor of t
 To additionally improve our position on the leaderboard, we then used multiple different GP regressors for the different locations on the grid.
 In our case we simply split the area into 4 equally sized regions and predict each on its own.
 
-![](./task1/extended_evaluation.png "Visualizatio of the predictions")
+The picture below visualizes the predictions. One can clearly see the regions where we are not allowed to underpredict (the circles which appear slightly lighter).
+![](./task1/extended_evaluation.png "Visualization of the predictions")
 
 ## Task 2: Bayesian Neural Networks
 
