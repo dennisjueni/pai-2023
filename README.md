@@ -13,7 +13,19 @@ In our case we simply split the area into 4 equally sized regions and predict ea
 The picture below visualizes the predictions. One can clearly see the regions where we are not allowed to underpredict (the circles which appear slightly lighter).
 ![](./task1/extended_evaluation.png "Visualization of the predictions")
 
-## Task 2: Bayesian Neural Networks
+## Task 2: SWA-Gaussian
+
+In this task, we had to predict aerial images of landscapes into 6 different classes. Additionally there are training samples which do not belong to a certain class and are classified as "ambiguous".
+The loss of the model is then calculated as a combination of the ECE (Expected Calibration Error) and a loss based on the predictions, where predicting ambiguous (e.g., -1) incurs a fixed cost and wrongly predicting a non-ambiguous sample incurs a larger fixed cost.
+
+To solve this we implemented SWAG according to the paper linked in the project description ([A Simple Baseline for Bayesian Uncertainty in Deep Learning](https://arxiv.org/pdf/1902.02476.pdf)).
+We first implemented SWAG diagonal, to get a first working solution, which was sufficient to pass the medium baseline, and afterwards we implemented SWAG-Full to pass the hard baseline as well.
+Fixing the prediction threshold to $\frac{2}{3}$ led to the best results on the leaderboard.
+
+The pictures below show the most and least confident predictions and additionally a reliability diagram for our model.
+![](./task1/examples_most_confident.png "Visualization of the most confident predictions")
+![](./task1/examples_least_confident.png "Visualization of the least confident predictions")
+![](./task1/reliability_diagram.png "Reliability diagram")
 
 ## Task 3: Bayesian Optimization
 
