@@ -11,7 +11,9 @@ To additionally improve our position on the leaderboard, we then used multiple d
 In our case we simply split the area into 4 equally sized regions and predict each on its own.
 
 The picture below visualizes the predictions. One can clearly see the regions where we are not allowed to underpredict (the circles which appear slightly lighter).
-![](./task1/extended_evaluation.png "Visualization of the predictions")
+
+<img src="./task1/extended_evaluation.png" alt="Visualization of the predictions" title="Visualization of the predictions" width="400"/>
+
 
 ## Task 2: SWA-Gaussian
 
@@ -23,9 +25,13 @@ We first implemented SWAG diagonal, to get a first working solution, which was s
 Fixing the prediction threshold to $\frac{2}{3}$ led to the best results on the leaderboard.
 
 The pictures below show the most and least confident predictions and additionally a reliability diagram for our model.
-![](./task2/examples_most_confident.png "Visualization of the most confident predictions")
-![](./task2/examples_least_confident.png "Visualization of the least confident predictions")
-![](./task2/reliability_diagram.png "Reliability diagram")
+
+<div style="display:flex; flex-direction:row; justify-content:space-between; align-items:center;">
+  <img src="./task2/examples_most_confident.png" alt="Visualization of the most confident predictions" title="Visualization of the most confident predictions" style="width: 49%;"/>
+  <img src="./task2/examples_least_confident.png" alt="Visualization of the least confident predictions" title="Visualization of the least confident predictions" style="width: 49%;"/>
+</div>
+<img src="./task2/reliability_diagram.png" alt="Reliability diagram" title="Reliability diagram" style="width: 99%; margin-top: 20px;"/>
+
 
 ## Task 3: Bayesian Optimization
 
