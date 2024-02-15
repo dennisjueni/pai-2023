@@ -12,7 +12,7 @@ In our case we simply split the area into 4 equally sized regions and predict ea
 
 The picture below visualizes the predictions. One can clearly see the regions where we are not allowed to underpredict (the circles which appear slightly lighter).
 
-<img src="./task1/extended_evaluation.png" alt="Visualization of the predictions" title="Visualization of the predictions" width="400"/>
+![](./task1/extended_evaluation.png)
 
 
 ## Task 2: SWA-Gaussian
@@ -35,4 +35,27 @@ The pictures below show the most and least confident predictions and additionall
 
 ## Task 3: Bayesian Optimization
 
+The task was to find the maximum value of some objective function while respecting certain constraints. Evaluating any function value that is not within a constraint is very expensive and is thus heavily penalized.
+Ideally, we would be able to find the maximum value of the objective value without ever evaluating the function at a point that is not within the constraint.
+To model this we use 2 Gaussian Processes (one for the objective function and one for the constraint function).
+Whenever we add a new datapoint, we fit both GPs again with all data that we currently have.
+To recommend a next point, we tried two different acquisition functions, namely Expected Improvement ("EI") and Upper-Confidence Bound ("UCB").
+For UCB we simply use the objective GP to predict the mean and the standard deviation. The UCB is then defined as $UCB = mean + \beta \cdot std$, where $\beta$ is a hyperparameter.
+We then use the constraint GP to check if we are potentially violating a constraint. If so we drastically reduce the value of the prediction to assure we do not pick this point.
+For EI we proceed in exactly the same way, except for the calculation of the EI value.
+From our tests we found out that UCB worked better for this specific usecase.
+
+The video below shows the first 30 recommended points of a very simple toy example where $f(x)$ represents the objective function and $v(x)$ represents the constraint function.
+
+![](./task3/optimization_video.gif)
+
+
 ## Task 4: Reinforcement Learning
+
+In this task we were asked to train a Reinforcement Learning agent that swings up an inverted pendulum and balances it there.
+The only control the agent has is a motor that can apply torques.
+To solve this task we implemented the off-policy SAC algorithm. A lot of the code was already provided through the template provided in the exercise.
+
+
+The GIF below shows the final trained agent and how it balances the pendulum once its upright.
+![](./task4/pendulum.gif)
