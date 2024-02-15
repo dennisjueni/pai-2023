@@ -25,9 +25,12 @@ We first implemented SWAG diagonal, to get a first working solution, which was s
 Fixing the prediction threshold to $\frac{2}{3}$ led to the best results on the leaderboard.
 
 The pictures below show the most and least confident predictions and additionally a reliability diagram for our model.
-<img src="./task2/examples_most_confident.png" alt="Visualization of the most confident predictions" title="Visualization of the most confident predictions" width="33%"/>
-<img src="./task2/examples_least_confident.png" alt="Visualization of the least confident predictions" title="Visualization of the least confident predictions" width="33%"/>
-<img src="./task2/reliability_diagram.png" alt="Reliability diagram" title="Reliability diagram" width="33%"/>
+
+<div style="display:flex; flex-direction:row; justify-content:space-between; align-items:center;">
+  <img src="./task2/examples_most_confident.png" alt="Visualization of the most confident predictions" title="Visualization of the most confident predictions" style="width: 49%;"/>
+  <img src="./task2/examples_least_confident.png" alt="Visualization of the least confident predictions" title="Visualization of the least confident predictions" style="width: 49%;"/>
+</div>
+<img src="./task2/reliability_diagram.png" alt="Reliability diagram" title="Reliability diagram" style="width: 99%; margin-top: 20px;"/>
 
 
 ## Task 3: Bayesian Optimization
