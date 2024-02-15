@@ -30,7 +30,6 @@ class BO_algo:
         total_obj_kernel = obj_variance_kernel * obj_kernel + obj_noise_kernel
         self.obj_gp = GaussianProcessRegressor(kernel=total_obj_kernel)
 
-        #constr_noise_kernel = WhiteKernel(noise_level=0.0001)
         constr_kernel = Matern(length_scale=0.5, length_scale_bounds="fixed") + RBF(length_scale=1, length_scale_bounds="fixed")
         constr_variance_kernel = ConstantKernel(constant_value=np.sqrt(2))
         constr_linear_kernel = DotProduct()
